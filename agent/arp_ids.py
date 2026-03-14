@@ -7,6 +7,12 @@ import time
 # Import regular expressions module to extract IP and MAC addresses from text
 import re
 
+# For API calls
+import requests 
+
+# Backend API URL (Node.js server pe hum is route ko banayenge)
+BACKEND_URL = "http://localhost:3000/api/alerts"
+
 
 # Dictionary to store trusted IP → MAC mappings
 # Example:
@@ -73,6 +79,20 @@ def monitor():
                         print("IP:", ip)
                         print("Original MAC:", trusted_table[ip])
                         print("Fake MAC:", mac)
+
+                        # --- NAYA CODE: Backend ko Data Bhejna ---
+                        alert_data = {
+                            "attacker_mac": mac,
+                            "target_ip": ip
+                        }
+                        
+                        try:
+                            # Send data to Node.js server as JSON
+                            response = requests.post(BACKEND_URL, json=alert_data)
+                            print(f"Alert sent to Database! Server Status: {response.status_code}")
+                        except Exception as e:
+                            print("Backend server se connect nahi ho paaya. Kya server chal raha hai?")
+                        # ------------------------------------------
 
                 else:
                     # If IP not seen before, add it to trusted table
