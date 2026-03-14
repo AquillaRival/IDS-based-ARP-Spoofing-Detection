@@ -9,6 +9,7 @@ const port = 3000;
 app.use(cors());
 app.use(express.json()); // Python se aane wale JSON data ko read karne ke liye
 app.set("view engine", "ejs");
+app.use(express.static("public"));
 
 // Database Connection
 const db = mysql.createConnection({
