@@ -102,7 +102,7 @@ def monitor():
                     print(f"Mapped: {ip} -> {mac}")
 
         # Wait 3 seconds before scanning ARP table again
-        time.sleep(3)
+        time.sleep(2)
 
 
 # Start the IDS monitoring system
