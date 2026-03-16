@@ -60,3 +60,8 @@ DEBUG = True
 def debug(message):
     if DEBUG:
         print("[DEBUG]", message)
+        # Packet validation helper
+def validate_packet(packet):
+    if packet is None:
+        return False
+    return True
