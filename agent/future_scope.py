@@ -25,3 +25,4 @@ if __name__ == "__main__":
     monitor_multiple_interfaces(interfaces)
     log_attack("192.168.1.10", "AA:BB:CC:DD:EE:FF")
     docker_setup()
+    # Updated detection timing
