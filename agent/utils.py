@@ -65,3 +65,7 @@ def validate_packet(packet):
     if packet is None:
         return False
     return True
+# Packet logger
+def log_packet(packet):
+    with open("packet_log.txt", "a") as f:
+        f.write(str(packet) + "\n")
