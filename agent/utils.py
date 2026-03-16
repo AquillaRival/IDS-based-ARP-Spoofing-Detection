@@ -54,3 +54,9 @@ def detect_spoof(packet):
 def start_sniffing():
     print("Starting IDS monitoring...")
     sniff(filter="arp", prn=analyze_packet)
+    # Debug mode
+DEBUG = True
+
+def debug(message):
+    if DEBUG:
+        print("[DEBUG]", message)
