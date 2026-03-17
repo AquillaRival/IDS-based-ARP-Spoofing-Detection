@@ -142,7 +142,7 @@ sudo arpspoof -i [interface] -t [Target_IP] [Gateway_IP]
 - **Harshit Trivedi** - Computer Science Engineering (Devlopment)
 - **Kirtivardhan Gupta** - Computer Science Engineering (Python functionality)
 - **Harshit Sharma** - Computer Science Engineering (Python functionality Debugger)
-- **Kanhiya Lavaniya** - Computer Science Engineering (Research)
+- **Kanhiya Lavaniya** - Computer Science Engineering (Research & Debbugging)
 
 ## 📄 License
 
