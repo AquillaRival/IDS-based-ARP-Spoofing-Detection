@@ -81,3 +81,9 @@ def detect_spoof(ip, mac):
         # IDS configuration
 SCAN_INTERVAL = 5
 ALERT_THRESHOLD = 3
+# Safe execution helper
+def safe_execute(func, *args):
+    try:
+        func(*args)
+    except Exception as e:
+        print("Execution error:", e)
