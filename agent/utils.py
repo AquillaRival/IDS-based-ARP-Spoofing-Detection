@@ -69,3 +69,8 @@ def validate_packet(packet):
 def log_packet(packet):
     with open("packet_log.txt", "a") as f:
         f.write(str(packet) + "\n")
+        # IP-MAC mapping
+ip_mac_table = {}
+
+def update_ip_mac(ip, mac):
+    ip_mac_table[ip] = mac
