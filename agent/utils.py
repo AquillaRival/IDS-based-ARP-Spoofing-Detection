@@ -87,3 +87,9 @@ def safe_execute(func, *args):
         func(*args)
     except Exception as e:
         print("Execution error:", e)
+        
+        def log_event(message):
+    import datetime
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    with open("ids_log.txt", "a") as f:
+        f.write(f"[{timestamp}] {message}\n")
