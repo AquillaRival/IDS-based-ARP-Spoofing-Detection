@@ -74,3 +74,7 @@ ip_mac_table = {}
 
 def update_ip_mac(ip, mac):
     ip_mac_table[ip] = mac
+    # Spoof detection helper
+def detect_spoof(ip, mac):
+    if ip in ip_mac_table and ip_mac_table[ip] != mac:
+        print("[ALERT] ARP spoofing detected for IP:", ip)
