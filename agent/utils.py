@@ -78,3 +78,6 @@ def update_ip_mac(ip, mac):
 def detect_spoof(ip, mac):
     if ip in ip_mac_table and ip_mac_table[ip] != mac:
         print("[ALERT] ARP spoofing detected for IP:", ip)
+        # IDS configuration
+SCAN_INTERVAL = 5
+ALERT_THRESHOLD = 3
