@@ -1,0 +1,49 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Network Security Dashboard</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<div class="container">
+    <h1>🚨 ARP Spoofing IDS Dashboard</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Alert Time</th>
+                <th>Attacker MAC (Fake)</th>
+                <th>Target IP</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (alerts && alerts.length > 0) { %>
+                <% alerts.forEach(function(alert) { %>
+                    <tr class="alert-row">
+                        <td>#<%= alert.id %></td>
+                        <td><%= new Date(alert.alert_time).toLocaleString() %></td>
+                        <td style="font-family: monospace; font-weight: bold;"><%= alert.attacker_mac %></td>
+                        <td><%= alert.target_ip %></td>
+                        <td><span class="status-badge">Spoofed</span></td>
+                    </tr>
+                <% }); %>
+            <% } else { %>
+                <tr>
+                    <td colspan="5" class="empty-state">No attacks detected yet. Network is secure! ✅</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    setTimeout(function(){
+       window.location.reload(1);
+    }, 5000);
+</script>
+
+</body>
+</html>
