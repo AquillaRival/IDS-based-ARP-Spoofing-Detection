@@ -40,11 +40,19 @@ def analyze_packet(packet):
 # Detection Logic
 # =========================
 
+arp_table = {}
+
 def detect_spoof(packet):
     if packet.haslayer(ARP):
         ip = packet.psrc
         mac = packet.hwsrc
-        print(f"Checking packet from {ip} ({mac})")
+
+        if ip in arp_table:
+            if arp_table[ip] != mac:
+                print(f"[ALERT] ARP Spoofing detected for {ip}")
+                alert_attack(ip)
+        else:
+            arp_table[ip] = mac
 
 
 # =========================
